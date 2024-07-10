@@ -19,17 +19,13 @@
     <th>번호</th>
     <th>제목</th>
     <th>작성자</th>
-    <th>작성시간</th>
-    <th>조회수</th>
   </tr>
   <tr th:each="board: ${boardList}">
     <td th:text="${board.id}"></td>
     <td>
-      <a th:text="${board.boardTitle}" th:href="@{|/${board.id}|}"></a>
+      <a th:text="${board.title}" th:href="@{|/${board.id}|}"></a>
     </td>
-    <td th:text="${board.boardWriter}"></td>
-    <td th:text="${board.createdAt}"></td>
-    <td th:text="${board.boardHits}"></td>
+    <td th:text="${board.user}"></td>
   </tr>
 </table>
 </body>

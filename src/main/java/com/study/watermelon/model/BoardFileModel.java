@@ -12,11 +12,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString
-public class BoardModel {
-    private long id;
-    private String user;
-    private String title;
-    private  String content;
-    private int fileAttached;
-    private List<MultipartFile> boardFile;
+public class BoardFileModel {
+    private Long id;
+    private Long boardId;
+    private String originalFileName;
+    private String storedFileName;
 }

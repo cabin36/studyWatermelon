@@ -4,5 +4,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.study.watermelon.model.BoardModel" alias="board"></typeAlias>
+        <typeAlias type="com.study.watermelon.model.BoardFileModel" alias="boardFile"></typeAlias>
     </typeAliases>
 </configuration>
