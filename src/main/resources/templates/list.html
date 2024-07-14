@@ -23,9 +23,9 @@
   <tr th:each="board: ${boardList}">
     <td th:text="${board.id}"></td>
     <td>
-      <a th:text="${board.title}" th:href="@{|/${board.id}|}"></a>
+      <a th:text="${board.boTitle}" th:href="@{|/${board.id}|}"></a>
     </td>
-    <td th:text="${board.user}"></td>
+    <td th:text="${board.boWriter}"></td>
   </tr>
 </table>
 </body>

@@ -33,4 +33,14 @@ public class BoardRepository {
     public List<BoardModel> findAll() {
         return sql.selectList("Board.findAll");
     }
+
+    // 수정
+    public void update(BoardModel boardModel){
+        sql.update("Board.update", boardModel);
+    }
+
+    // 삭제
+    public void delete(Long id){
+        sql.delete("Board.delete", id);
+    }
 }

@@ -21,6 +21,7 @@ public class BoardService {
         if(boardModel.getBoardFile().get(0).isEmpty())
         {
             boardModel.setFileAttached(0);
+            // db 저장
             boardRepository.save(boardModel);
         }
         else
@@ -55,4 +56,16 @@ public class BoardService {
     public List<BoardModel> findAll() {
         return  boardRepository.findAll();
     }
+
+    // 수정
+    public void update(BoardModel boardModel){
+        boardRepository.update(boardModel);
+    }
+
+    // 삭제
+    public void delete(Long id){
+        boardRepository.delete(id);
+    }
+
+
 }

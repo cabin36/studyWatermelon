@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{|/update/${board.id}|}" method="post" name="updateForm">
+    <input type="hidden" name="id" th:value="${board.id}">
+    작성자 : <input type="text" name="boWriter" th:value="${board.boWriter}" readonly><br>
+    제목 : <input type="text" name="boTitle" th:value="${board.boTitle}"><br>
+    내용 : <textarea name="boContent" cols="30" rows="10" th:text="${board.boContent}"></textarea><br>
+    <input type="button" value="수정" onclick="board_update()">
+</form>
+</body>
+</html>

@@ -21,15 +21,15 @@
         </tr>
         <tr>
             <th>title</th>
-            <td th:text="${board.title}"></td>
+            <td th:text="${board.boTitle}"></td>
         </tr>
         <tr>
             <th>user</th>
-            <td th:text="${board.user}"></td>
+            <td th:text="${board.boWriter}"></td>
         </tr>
         <tr>
             <th>content</th>
-            <td th:text="${board.content}"></td>
+            <td th:text="${board.boContent}"></td>
         </tr>
     </table>
     <button onclick="listReq()">목록</button>
@@ -41,8 +41,10 @@
         location.href = "/list";
     }
     const updateReq = () => {
+        location.href = `/update/[[${board.id}]]`;
     }
-    const Req = () => {
+    const deleteReq = () => {
+        location.href = `/delete/[[${board.id}]]`;
     }
 </script>
 </html>

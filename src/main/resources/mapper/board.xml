@@ -4,23 +4,34 @@
 
 <mapper namespace="Board">
     <insert id="saveFile" parameterType="boardFile">
-        insert into board_file_table(originalFileName, storedFileName, boardId)
-        values (#{originalFileName}, #{storedFileName}, #{boardId})
+        insert into wmboard_file(originalFileName, storedFileName, boId)
+        values (#{originalFileName}, #{storedFileName}, #{boId})
     </insert>
 
     <select id="findFile" parameterType="Long" resultType="boardFile">
-        select * from board_file_table where boardId = #{id}
+        select * from wmboard_file where boId = #{id}
     </select>
 
     <insert id="insertBoard" parameterType="board">
-        insert into boardWatermelon (user, content, title, fileAttached) values (#{user}, #{content}, #{title}, #{fileAttached})
+        insert into wmboard (boWriter, boContent, boTitle, fileAttached) values (#{boWriter}, #{boContent}, #{boTitle}, #{fileAttached})
     </insert>
 
    <select id="findAll" resultType="board">
-        select id, boardTitle, user from boardWatermelon;
+        select id, boWriter, user from wmboard;
    </select>
 
     <select id="findById" parameterType="Long" resultType="board">
-        select id, title, user, content from boardtest where id=#{id}
+        select id, boTitle, boWriter, boContent from wmboard where id=#{id}
     </select>
+
+    <update id="update" parameterType="board">
+        update wmboard
+        set boTitle = #{boTitle}, boContent=#{boContent}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from wmboard
+        where id=#{id}
+    </delete>
 </mapper>

@@ -39,7 +39,9 @@ public class BoardController {
 
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") Long id, Model model) {
+        // 조회
         BoardModel boardModel = boardService.findById(id);
+        // model 담아줌
         model.addAttribute("board", boardModel);
         if(boardModel.getFileAttached() == 1){
             List<BoardFileModel> boardFileModelList = boardService.findFile(id);
@@ -47,4 +49,26 @@ public class BoardController {
         }
         return "detail";
     }
+
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable("id") Long id, Model model){
+        BoardModel boardModel = boardService.findById(id);
+        model.addAttribute("board", boardModel);
+        return "update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(BoardModel boardModel, Model model){
+        boardService.update(boardModel);
+        BoardModel getBoard = boardService.findById(boardModel.getId());
+        model.addAttribute("board", getBoard);
+        return "detail";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        boardService.delete(id);
+        return "redirect:/list";
+    }
+
 }
